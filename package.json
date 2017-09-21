@@ -1,0 +1,15 @@
+{
+	"name": "ubt-angularjs",
+	"version": "0.0.0",
+	"description": "Starter AngularJS 1.x project with Webpack and Typescript",
+	"main": "/",
+	"scripts": {
+		"start": "webpack --config webpack/webpack.dev.js --watch --NODE_ENV=dev"
+	},
+	"author": "Rick Beddard <rickbeddard@unboxedtechnology.com>",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"webpack": "~3.6.0"
+	}
+}
