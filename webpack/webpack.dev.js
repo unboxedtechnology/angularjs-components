@@ -1,27 +1,27 @@
-var loaders = require("./loaders");
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path    = require('path');
+const loaders = require("./rules");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
 	entry: ['./src/index.ts'],
 
     output: {
-        filename: 'build.js',
-        path: 'dist'
+        path: path.resolve(__dirname, '../dist'),
+        filename: 'app.js'
 	},
 
     resolve: {
-        root: __dirname,
-        extensions: ['', '.ts', '.js', '.json']
+		modules: [
+			__dirname,
+			"node_modules"
+		],
+        extensions: ['.ts', '.js', '.json']
 	},
 
-    resolveLoader: {
-        modulesDirectories: ["node_modules"]
-	},
-
-    devtool: "inline-eval-cheap-source-map",
+    devtool: "cheap-eval-source-map",
 
 	plugins: [
         new HtmlWebpackPlugin({
@@ -48,7 +48,7 @@ module.exports = {
     ],
 
 	module:{
-        loaders: loaders
+        rules: loaders
     }
 
 };

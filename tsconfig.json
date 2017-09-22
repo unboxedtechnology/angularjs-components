@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "outDir": "out",
+    "types": [
+    ]
+  },
+  "exclude": [
+	  "original",
+    "out",
+    "node_modules",
+    "dist",
+    "dev",
+    "reports"
+  ],
+  "version": "2.5.2"
+}
