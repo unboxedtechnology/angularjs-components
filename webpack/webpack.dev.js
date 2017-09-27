@@ -1,34 +1,11 @@
-const webpack = require('webpack');
-const path    = require('path');
-const loaders = require("./rules");
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge  = require('webpack-merge');
+const common = require('./webpack.common.js');
+// plugins
+const BrowserSyncPlugin  = require('browser-sync-webpack-plugin');
 
-module.exports = {
-
-	entry: ['./src/index.ts'],
-
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: 'app.js'
-	},
-
-    resolve: {
-		modules: [
-			__dirname,
-			"node_modules"
-		],
-        extensions: ['.ts', '.js', '.json']
-	},
-
-    devtool: "cheap-eval-source-map",
-
+module.exports = merge(common, {
+	devtool: 'inline-source-map',
 	plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            inject: 'body',
-            hash: true
-        }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
@@ -39,16 +16,5 @@ module.exports = {
             online: false,
             notify: false
         }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            'window.jquery': 'jquery'
-        })
-    ],
-
-	module:{
-        rules: loaders
-    }
-
-};
+	]
+});
