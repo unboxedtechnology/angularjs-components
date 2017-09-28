@@ -5,19 +5,20 @@ import './angular-1.5.scss';
 const MODULE_NAME 	 = 'angular-1.5';
 const COMPONENT_NAME = 'angularOneDotFive';
 
-let AngularOneDotFiveComponentConfig = {
-	template: require('./angular-1.5.html'),
-	controller: AngularOneDotFiveCtrl,
-	bindings: {}
-};
-
 class AngularOneDotFiveCtrl {
 	constructor() {
 	}
 }
 
+let config = {
+	template: require('./angular-1.5.html'),
+	controller: AngularOneDotFiveCtrl,
+	//controllerAs: 'ctrl15',
+	bindings: {}
+};
+
 angular.module(MODULE_NAME, [])
-	.component(COMPONENT_NAME, AngularOneDotFiveComponentConfig);
+	.component(COMPONENT_NAME, config);
 
 export default MODULE_NAME;
   

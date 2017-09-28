@@ -8,7 +8,8 @@ let AngularOneDotFourDirective = () => {
 	return {
 		template: require('./angular-1.4.html'),
 		controller: 'AngularOneDotFourDirectiveCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		scope: {}
 	}
 };
 
